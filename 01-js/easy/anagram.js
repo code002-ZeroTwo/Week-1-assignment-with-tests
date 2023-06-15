@@ -8,7 +8,22 @@
 */
 
 function isAnagram(str1, str2) {
-
+  let count = 0;
+  let length = str2.length > str1.length ? str2.length : str1.length;
+  for (const char1 of str1) {
+    for (const char2 of str2) {
+      if(char1.toUpperCase() === char2.toUpperCase()) {
+        count++;
+        str2 = str2.replace(char2,'');
+        str1 = str1.replace(char1,'');
+      }
+    }
+    
+  }
+  if (count == length){
+    return true;
+  }
+  return false;
 }
 
 module.exports = isAnagram;
